@@ -13,24 +13,31 @@ const form = document.querySelector('#form');
 const input = document.querySelector('#inputCity');
 const header = document.querySelector('.header');
 
+function removeCard() {
+    const prevCard = document.querySelector('.card');
+    if(prevCard) prevCard.remove();
+}
 
-form.onsubmit = function (e) {
-    e.preventDefault();
-    let city = input.value.trim();
 
-    const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
-    fetch(url).then((resp) => {
-        return resp.json()
-    })
-        .then((data) => {
-            console.log(data);
+    
+    async function getWeather(city){
+        const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        return data
+    }
             // console.log(data.location.name);
             // console.log(data.location.country);
             // console.log(data.current.temp_c);
             // console.log(data.current.condition.text);
+
+    form.onsubmit = async function (e) {
+    e.preventDefault();
+    let city = input.value.trim();
+    const data = await getWeather(city)   
             if(data.error) {
-                const prevCard = document.querySelector('.card');
-                if(prevCard) prevCard.remove();
+                removeCard();
                 const html = `<div class="card">${data.error.message}</div>`;
                 header.insertAdjacentHTML('afterend', html);
             }else{
@@ -50,10 +57,8 @@ form.onsubmit = function (e) {
                                     </div>
                                     </div>`
 
-                const prevCard = document.querySelector('.card');
-                if(prevCard) prevCard.remove();
-                header.insertAdjacentHTML('afterend', html);}
-            
-        });
-    e.target.reset();
-}
+                removeCard()
+                header.insertAdjacentHTML('afterend', html);
+            }
+            e.target.reset();
+        };
