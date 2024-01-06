@@ -1,0 +1,132 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    min-height: 100vh;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header{
+    padding: 40px 15px 50px;
+    background: linear-gradient(92.7deg, #4CB8C4 0%, #3CD3AD 100%), #232323;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.title{
+    font-family: 'Rubik Doodle Shadow', system-ui;
+    line-height: 52px;
+    font-weight: 700;
+    font-size: 44px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.form{
+    background: white;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 54px;
+    width: 460px;
+}
+
+.input{
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    font-size: medium;
+    outline: none;
+}
+
+.btn{
+    width: 145px;
+    height: 54px;
+    background: #E5464f;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    font-size: medium;
+    transition: background-color 0.2s ease-in;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background: #e6151f;
+}
+
+.card{
+    padding: 30px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0px 5px 20px rgba(27, 108, 114, 0.25);
+    width: 360px;
+}
+
+.cardCity{
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    margin-bottom: 20px;
+}
+
+.cardCity span{
+    display: inline-block;
+    border-radius: 6px;
+    background: #E5464f;
+    padding: 3px 5px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1;
+    vertical-align: text-top;
+    color: white;
+}
+
+.weather{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.value{
+    font-size: 92px;
+    line-height: 1;
+}
+
+img{
+
+}
+
+.description{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.footer{
+    background: linear-gradient(92.7deg, #4CB8C4 0%, #3CD3AD 100%), #232323;;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 25px;
+    margin-top: auto;
+}
+
+.footer a{
+    text-decoration: none;
+}
+
+.footer img{
+    height: 50px;
+}
